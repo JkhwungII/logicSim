@@ -1,0 +1,32 @@
+# c17 iscas example (to test conversion program only)
+# ---------------------------------------------------
+# 
+# 
+#   total number of lines in the netlist ..............    17
+#   simplistically reduced equivalent fault set size =     22
+#         lines from primary input  gates .......     5
+#         lines from primary output gates .......     2
+#         lines from interior gate outputs ......     4
+#         lines from **     3 ** fanout stems ...     6
+# 
+#         avg_fanin  =  2.00,     max_fanin  =  2
+#         avg_fanout =  2.00,     max_fanout =  2
+# 
+# 
+# 
+# 
+# 
+INPUT(G1009gat)
+INPUT(G1003gat)
+INPUT(G1011gat)
+INPUT(G1013gat)
+INPUT(G1005gat)
+OUTPUT(G1004gat)
+OUTPUT(G1008gat)
+
+G1001gat = nand(G1003gat, G1006gat)
+G1004gat = nand(G1010gat, G1001gat)
+G1006gat = nand(G1011gat, G1013gat)
+G1008gat = nand(G1001gat, G1012gat)
+G1010gat = nand(G1009gat, G1011gat)
+G1012gat = nand(G1006gat, G1005gat)
